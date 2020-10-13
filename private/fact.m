@@ -23,7 +23,8 @@ function [U,T,eigA] = fact(A,no_waitbar)
 if n~=m, error('Only works for square matrices'); end;
 
 %% Check to see whether matrix is triangular already
-if any(any(tril(A,-1)))==0
+% if any(any(tril(A,-1)))==0
+if any(any(tril(A,-1)))==0 || any(any(triu(A,1)))==0
 
   T = A; eigA = diag(A);
   U = 1;
